@@ -14,6 +14,9 @@ Cada apartamento (o bloque de apartamentos) tiene su propia carpeta con un `inde
 | Sants 158 | [/sants-158/](https://armandomarbo.github.io/guias-apartamentos/sants-158/) |
 | Calle Mas 62 | [/mas-62/](https://armandomarbo.github.io/guias-apartamentos/mas-62/) |
 | Calle Llull 16 (Poblenou) | [/llull-16/](https://armandomarbo.github.io/guias-apartamentos/llull-16/) |
+| Amposta 1 (Font de la Guatlla) | [/amposta-1/](https://armandomarbo.github.io/guias-apartamentos/amposta-1/) |
+
+Todas las guías están disponibles en versión bilingüe (español / inglés).
 
 ## Cómo añadir una nueva guía
 
