@@ -18,6 +18,7 @@ Cada apartamento (o bloque de apartamentos) tiene su propia carpeta con un `inde
 | Prat de la Manta (Plz. Europa, L'Hospitalet) | [/prat-de-la-manta/](https://armandomarbo.github.io/guias-apartamentos/prat-de-la-manta/) |
 | Natzaret Rooms (L'Hospitalet) | [/natzaret-rooms/](https://armandomarbo.github.io/guias-apartamentos/natzaret-rooms/) |
 | Blas Fernández Lirola 38 (L'Hospitalet) | [/blas-fernandez-38/](https://armandomarbo.github.io/guias-apartamentos/blas-fernandez-38/) |
+| Martí i Julià 199 (L'Hospitalet) | [/marti-julia-199/](https://armandomarbo.github.io/guias-apartamentos/marti-julia-199/) |
 
 Todas las guías están disponibles en versión bilingüe (español / inglés).
 
