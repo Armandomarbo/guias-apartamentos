@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="es" data-lang="es" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía Turística de Barcelona</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --text-xs:clamp(0.75rem,0.7rem + 0.25vw,0.875rem);
+  --text-sm:clamp(0.875rem,0.8rem + 0.35vw,1rem);
+  --text-base:clamp(1rem,0.95rem + 0.25vw,1.125rem);
+  --text-lg:clamp(1.125rem,1rem + 0.75vw,1.5rem);
+  --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);
+  --text-2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);
+  --text-hero:clamp(2.8rem,1rem + 5vw,6rem);
+  --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;
+  --space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;
+  --space-12:3rem;--space-16:4rem;--space-20:5rem;--space-24:6rem;
+  --color-bg:#f5f3ee;--color-surface:#fff;--color-surface-2:#edeae4;
+  --color-divider:#ddd9d0;--color-border:#ccc8bf;
+  --color-text:#1a1714;--color-text-muted:#6b6560;--color-text-faint:#b0ab a3;
+  --color-primary:#c8102e;--color-primary-hover:#a00d25;--color-primary-highlight:#fde8eb;
+  --color-gold:#d4a017;--color-blue:#1565c0;--color-teal:#00796b;
+  --radius-sm:0.375rem;--radius-md:0.5rem;--radius-lg:0.75rem;--radius-xl:1rem;--radius-2xl:1.5rem;--radius-full:9999px;
+  --shadow-sm:0 1px 3px rgba(20,14,10,.08);--shadow-md:0 4px 16px rgba(20,14,10,.10);--shadow-lg:0 12px 40px rgba(20,14,10,.14);
+  --transition:180ms cubic-bezier(0.16,1,0.3,1);
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'Inter','Helvetica Neue',sans-serif;
+  --content-default:960px;--content-wide:1200px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{min-height:100dvh;line-height:1.6;font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text);background:var(--color-bg)}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3,h4{text-wrap:balance;line-height:1.1;font-family:var(--font-display)}
+p,li{text-wrap:pretty}
+button,a{cursor:pointer;transition:all var(--transition)}
+a{color:inherit;text-decoration:none}
+
+/* LANG SYSTEM */
+[data-lang="en"] .t-es{display:none!important}
+[data-lang="es"] .t-en{display:none!important}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--color-divider);box-shadow:var(--shadow-sm)}
+.nav-inner{max-width:var(--content-wide);margin:0 auto;padding:var(--space-3) var(--space-6);display:flex;align-items:center;justify-content:space-between;gap:var(--space-4)}
+.nav-logo{display:flex;align-items:center;gap:var(--space-3);flex-shrink:0}
+.nav-logo-text{font-family:var(--font-display);font-size:var(--text-base);font-weight:700;color:var(--color-primary)}
+.nav-links{display:flex;gap:var(--space-1);list-style:none;overflow-x:auto}
+.nav-links a{font-size:var(--text-xs);color:var(--color-text-muted);font-weight:600;padding:var(--space-2) var(--space-3);border-radius:var(--radius-full);white-space:nowrap;transition:all var(--transition)}
+.nav-links a:hover,.nav-links a.active{background:var(--color-primary);color:#fff}
+.lang-btn{background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:var(--radius-full);padding:6px 14px;font-size:var(--text-xs);font-weight:700;color:var(--color-text-muted);cursor:pointer;white-space:nowrap;transition:all var(--transition);flex-shrink:0}
+.lang-btn:hover{background:var(--color-primary);color:#fff;border-color:var(--color-primary)}
+@media(max-width:900px){.nav-links{display:none}}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:600px;max-height:900px;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,5,10,.9) 0%,rgba(5,5,10,.4) 50%,rgba(5,5,10,.1) 100%)}
+.hero-content{position:relative;z-index:2;max-width:var(--content-wide);margin:0 auto;padding:var(--space-24) var(--space-6) var(--space-16);width:100%}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:var(--space-2);background:var(--color-primary);color:#fff;font-size:var(--text-xs);font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:var(--space-2) var(--space-4);border-radius:var(--radius-full);margin-bottom:var(--space-5)}
+.hero h1{font-size:var(--text-hero);color:#fff;margin-bottom:var(--space-4);line-height:1.0}
+.hero-sub{font-size:var(--text-lg);color:rgba(255,255,255,.75);max-width:50ch;font-weight:300;margin-bottom:var(--space-8)}
+.hero-scroll{display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-3)}
+.hero-scroll-text{font-size:var(--text-xs);color:rgba(255,255,255,.5);font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.scroll-dots{display:flex;gap:6px}
+.scroll-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.3)}
+.scroll-dot.active{background:var(--color-primary);width:20px;border-radius:3px}
+
+/* QUICK STATS */
+.stats-strip{background:var(--color-primary);padding:var(--space-5) var(--space-6)}
+.stats-inner{max-width:var(--content-wide);margin:0 auto;display:flex;justify-content:space-around;flex-wrap:wrap;gap:var(--space-4)}
+.stat-item{text-align:center;color:#fff}
+.stat-number{font-family:var(--font-display);font-size:var(--text-xl);display:block;line-height:1}
+.stat-label{font-size:var(--text-xs);color:rgba(255,255,255,.7);margin-top:2px;display:block}
+
+/* SECTION BASE */
+.section{padding:clamp(var(--space-12),7vw,var(--space-24)) var(--space-6)}
+.container{max-width:var(--content-wide);margin:0 auto}
+.section-eyebrow{display:inline-flex;align-items:center;gap:var(--space-2);font-size:var(--text-xs);font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-primary);margin-bottom:var(--space-3)}
+.section-eyebrow::before{content:'';display:block;width:20px;height:2px;background:var(--color-primary)}
+.section-title{font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-text);margin-bottom:var(--space-2)}
+.section-sub{font-size:var(--text-base);color:var(--color-text-muted);max-width:55ch;margin-bottom:var(--space-10)}
+
+/* MUST-SEE GRID */
+.mustsee-section{background:var(--color-bg)}
+.mustsee-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:320px 280px;gap:var(--space-4)}
+@media(max-width:900px){.mustsee-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}}
+@media(max-width:560px){.mustsee-grid{grid-template-columns:1fr}}
+.ms-card{position:relative;border-radius:var(--radius-xl);overflow:hidden;cursor:pointer}
+.ms-card.big{grid-row:span 2}
+.ms-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.ms-card:hover img{transform:scale(1.05)}
+.ms-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,transparent 55%)}
+.ms-content{position:absolute;bottom:0;left:0;right:0;padding:var(--space-5)}
+.ms-badge{display:inline-flex;align-items:center;gap:4px;background:var(--color-primary);color:#fff;font-size:var(--text-xs);font-weight:700;padding:2px 8px;border-radius:var(--radius-full);margin-bottom:var(--space-2)}
+.ms-name{font-family:var(--font-display);font-size:var(--text-lg);color:#fff;margin-bottom:4px}
+.ms-meta{font-size:var(--text-xs);color:rgba(255,255,255,.65)}
+.ms-tip{background:rgba(255,255,255,.1);backdrop-filter:blur(4px);border-radius:var(--radius-sm);padding:3px 8px;font-size:var(--text-xs);color:rgba(255,255,255,.8);margin-top:var(--space-2);display:inline-block}
+
+/* BARRIOS */
+.barrios-section{background:var(--color-surface-2)}
+.barrios-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:var(--space-5)}
+.barrio-card{background:var(--color-surface);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--color-border);transition:transform var(--transition),box-shadow var(--transition)}
+.barrio-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.barrio-img{height:160px;overflow:hidden;position:relative}
+.barrio-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.barrio-card:hover .barrio-img img{transform:scale(1.06)}
+.barrio-vibe{position:absolute;top:var(--space-3);right:var(--space-3);background:rgba(0,0,0,.6);color:#fff;font-size:var(--text-xs);font-weight:600;padding:3px 10px;border-radius:var(--radius-full)}
+.barrio-body{padding:var(--space-5)}
+.barrio-body h3{font-family:var(--font-display);font-size:var(--text-base);margin-bottom:var(--space-2)}
+.barrio-body p{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.55}
+.barrio-tags{display:flex;flex-wrap:wrap;gap:var(--space-1);margin-top:var(--space-3)}
+.btag{font-size:var(--text-xs);background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius-full);padding:2px 8px;color:var(--color-text-muted)}
+
+/* MUSEOS */
+.museos-section{background:var(--color-bg)}
+.museos-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--space-5)}
+.museo-card{background:var(--color-surface);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--color-border)}
+.museo-img{height:170px;overflow:hidden}
+.museo-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.museo-card:hover .museo-img img{transform:scale(1.05)}
+.museo-body{padding:var(--space-5)}
+.museo-body h3{font-family:var(--font-display);font-size:var(--text-base);margin-bottom:var(--space-2)}
+.museo-body p{font-size:var(--text-sm);color:var(--color-text-muted)}
+.museo-info{display:flex;justify-content:space-between;align-items:center;margin-top:var(--space-4);padding-top:var(--space-3);border-top:1px solid var(--color-divider)}
+.museo-price{font-size:var(--text-sm);font-weight:700;color:var(--color-primary)}
+.museo-line{font-size:var(--text-xs);color:var(--color-text-muted)}
+
+/* PLAYAS */
+.playas-section{background:#e8f4fb}
+.playas-scroll{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:var(--space-5)}
+.playa-card{background:var(--color-surface);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-md)}
+.playa-img{height:180px;overflow:hidden}
+.playa-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.playa-card:hover .playa-img img{transform:scale(1.05)}
+.playa-body{padding:var(--space-5)}
+.playa-body h3{font-family:var(--font-display);font-size:var(--text-base);margin-bottom:var(--space-1)}
+.playa-body p{font-size:var(--text-sm);color:var(--color-text-muted)}
+.playa-km{display:flex;align-items:center;gap:4px;font-size:var(--text-xs);color:var(--color-blue);font-weight:600;margin-top:var(--space-2)}
+
+/* GASTRONOMIA */
+.gastro-section{background:linear-gradient(135deg,#1a0a05 0%,#2d1510 100%);color:#fff}
+.gastro-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-8);align-items:start}
+@media(max-width:768px){.gastro-grid{grid-template-columns:1fr}}
+.gastro-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-xl);padding:var(--space-6)}
+.gastro-card h3{font-family:var(--font-display);font-size:var(--text-lg);color:#fff;margin-bottom:var(--space-4)}
+.gastro-item{display:flex;align-items:flex-start;gap:var(--space-3);padding:var(--space-3) 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.gastro-item:last-child{border:none}
+.gastro-item .icon{font-size:1.4rem;flex-shrink:0;margin-top:2px}
+.gastro-item .name{font-size:var(--text-sm);font-weight:600;color:#fff}
+.gastro-item .desc{font-size:var(--text-xs);color:rgba(255,255,255,.6);margin-top:2px}
+.gastro-img-side{border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg)}
+.gastro-img-side img{width:100%;height:380px;object-fit:cover}
+.mercados-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);margin-top:var(--space-6)}
+@media(max-width:560px){.mercados-grid{grid-template-columns:1fr}}
+.mercado-pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius-lg);padding:var(--space-4);text-align:center}
+.mercado-pill .micon{font-size:1.8rem;margin-bottom:var(--space-2)}
+.mercado-pill .mname{font-size:var(--text-sm);font-weight:700;color:#fff;margin-bottom:2px}
+.mercado-pill .mdesc{font-size:var(--text-xs);color:rgba(255,255,255,.55)}
+
+/* CONSEJOS */
+.consejos-section{background:var(--color-surface-2)}
+.consejos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:var(--space-5)}
+.consejo-card{background:var(--color-surface);border-radius:var(--radius-xl);padding:var(--space-6);border:1px solid var(--color-border);box-shadow:var(--shadow-sm)}
+.consejo-icon{font-size:2rem;margin-bottom:var(--space-3)}
+.consejo-card h3{font-family:var(--font-display);font-size:var(--text-base);margin-bottom:var(--space-2)}
+.consejo-card p{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.6}
+.consejo-card .highlight{display:inline-block;margin-top:var(--space-3);background:var(--color-primary-highlight);border-radius:var(--radius-md);padding:var(--space-2) var(--space-3);font-size:var(--text-xs);font-weight:600;color:var(--color-primary)}
+
+/* GAUDÍ ESPECIAL */
+.gaudi-section{background:var(--color-surface)}
+.gaudi-timeline{display:flex;flex-direction:column;gap:0}
+.gaudi-item{display:grid;grid-template-columns:120px 1fr;gap:var(--space-6);padding:var(--space-6) 0;border-bottom:1px solid var(--color-divider)}
+.gaudi-item:last-child{border:none}
+.gaudi-year{font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-primary);font-style:italic;line-height:1}
+.gaudi-text h3{font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-2)}
+.gaudi-text p{font-size:var(--text-sm);color:var(--color-text-muted)}
+.gaudi-text .must{display:inline-flex;align-items:center;gap:4px;font-size:var(--text-xs);font-weight:700;color:var(--color-primary);margin-top:var(--space-2)}
+@media(max-width:560px){.gaudi-item{grid-template-columns:1fr};.gaudi-year{font-size:var(--text-lg)}}
+
+/* ITINERARIOS */
+.itin-section{background:linear-gradient(180deg,var(--color-bg) 0%,var(--color-surface-2) 100%)}
+.itin-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:var(--space-6)}
+.itin-card{background:var(--color-surface);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-md);border:1px solid var(--color-border)}
+.itin-header{padding:var(--space-5) var(--space-6);border-bottom:1px solid var(--color-divider)}
+.itin-day{font-size:var(--text-xs);font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--color-primary)}
+.itin-title{font-family:var(--font-display);font-size:var(--text-lg);margin-top:4px}
+.itin-stops{padding:var(--space-4) var(--space-6)}
+.itin-stop{display:flex;gap:var(--space-3);align-items:flex-start;padding:var(--space-3) 0}
+.itin-stop-line{display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:20px}
+.itin-dot{width:10px;height:10px;border-radius:50%;background:var(--color-primary);flex-shrink:0}
+.itin-connector{width:2px;flex:1;background:var(--color-divider);min-height:20px;margin-top:4px}
+.itin-stop-text{flex:1}
+.itin-stop-name{font-size:var(--text-sm);font-weight:600}
+.itin-stop-detail{font-size:var(--text-xs);color:var(--color-text-muted);margin-top:2px}
+.itin-stop-time{font-size:var(--text-xs);color:var(--color-primary);font-weight:600;white-space:nowrap;margin-top:2px}
+
+footer{background:#100a07;color:rgba(255,255,255,.45);text-align:center;padding:var(--space-12) var(--space-6);font-size:var(--text-xs)}
+footer strong{color:rgba(255,255,255,.8)}
+footer .footer-logo{font-family:var(--font-display);font-size:var(--text-xl);color:#fff;margin-bottom:var(--space-4);display:block}
+footer .footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:var(--space-4);margin-top:var(--space-6)}
+footer .footer-links a{color:rgba(255,255,255,.5);transition:color var(--transition)}
+footer .footer-links a:hover{color:#fff}
+
+@media(prefers-reduced-motion:no-preference){
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+  .reveal.visible{opacity:1;transform:none}
+  .reveal-delay-1{transition-delay:.1s}
+  .reveal-delay-2{transition-delay:.2s}
+  .reveal-delay-3{transition-delay:.3s}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" aria-label="Barcelona">
+        <path d="M8 28 L8 16 L16 8 L24 16 L24 28" stroke="#c8102e"/>
+        <path d="M12 28 L12 20 L20 20 L20 28" stroke="#c8102e"/>
+        <path d="M4 16 L16 4 L28 16" stroke="#d4a017" stroke-width="1.5"/>
+      </svg>
+      <span class="nav-logo-text">Barcelona</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#imprescindibles"><span class="t-es">Imprescindibles</span><span class="t-en">Must-See</span></a></li>
+      <li><a href="#barrios"><span class="t-es">Barrios</span><span class="t-en">Neighbourhoods</span></a></li>
+      <li><a href="#gaudi">Gaudí</a></li>
+      <li><a href="#museos"><span class="t-es">Museos</span><span class="t-en">Museums</span></a></li>
+      <li><a href="#playas"><span class="t-es">Playas</span><span class="t-en">Beaches</span></a></li>
+      <li><a href="#gastronomia"><span class="t-es">Gastronomía</span><span class="t-en">Food</span></a></li>
+      <li><a href="#itinerarios"><span class="t-es">Itinerarios</span><span class="t-en">Itineraries</span></a></li>
+      <li><a href="#consejos"><span class="t-es">Consejos</span><span class="t-en">Tips</span></a></li>
+    </ul>
+    <button class="lang-btn" id="langToggle">
+      <span class="t-es">🇪🇸 ES → EN</span>
+      <span class="t-en">🇬🇧 EN → ES</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/9ee042702a10e39dcf20f7202617b46d134556dd.jpg" alt="Sagrada Família Barcelona aerial sunset" width="1600" height="900" loading="eager" class="hero-bg">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span class="t-es">Guía turística completa</span><span class="t-en">Complete travel guide</span></div>
+    <h1>Barcelona</h1>
+    <p class="hero-sub t-es">La ciudad que Gaudí soñó, el Mediterráneo te regala y la vida te llena.</p>
+    <p class="hero-sub t-en">The city Gaudí dreamed, the Mediterranean gives, and life fills you with.</p>
+    <div class="hero-scroll">
+      <span class="hero-scroll-text t-es">Descubre más abajo</span>
+      <span class="hero-scroll-text t-en">Discover below</span>
+      <div class="scroll-dots">
+        <div class="scroll-dot active"></div>
+        <div class="scroll-dot"></div>
+        <div class="scroll-dot"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item"><span class="stat-number">1,7M</span><span class="stat-label t-es">habitantes</span><span class="stat-label t-en">inhabitants</span></div>
+    <div class="stat-item"><span class="stat-number">4,4km</span><span class="stat-label t-es">de playas urbanas</span><span class="stat-label t-en">of city beaches</span></div>
+    <div class="stat-item"><span class="stat-number">12</span><span class="stat-label t-es">líneas de metro</span><span class="stat-label t-en">metro lines</span></div>
+    <div class="stat-item"><span class="stat-number">9</span><span class="stat-label t-es">obras de Gaudí</span><span class="stat-label t-en">Gaudí masterpieces</span></div>
+    <div class="stat-item"><span class="stat-number">300</span><span class="stat-label t-es">días de sol / año</span><span class="stat-label t-en">sunny days / year</span></div>
+  </div>
+</div>
+
+<!-- IMPRESCINDIBLES -->
+<section class="section mustsee-section" id="imprescindibles">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow"><span class="t-es">No te lo puedes perder</span><span class="t-en">You can't miss these</span></div>
+      <h2 class="section-title"><span class="t-es">Los grandes iconos</span><span class="t-en">The great icons</span></h2>
+      <p class="section-sub t-es">Barcelona es una ciudad tan rica que 3 días no bastan. Aquí los imprescindibles.</p>
+      <p class="section-sub t-en">Barcelona is so rich that 3 days are not enough. Here are the absolute highlights.</p>
+    </div>
+    <div class="mustsee-grid">
+      <!-- SAGRADA FAMÍLIA big -->
+      <div class="ms-card big reveal">
+        <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/9ee042702a10e39dcf20f7202617b46d134556dd.jpg" alt="Sagrada Família" width="700" height="700" loading="lazy">
+        <div class="ms-overlay"></div>
+        <div class="ms-content">
+          <div class="ms-badge">⭐ #1 <span class="t-es">más visitado</span><span class="t-en">most visited</span></div>
+          <div class="ms-name">Sagrada Família</div>
+          <div class="ms-meta"><span class="t-es">Basílica de Gaudí · en construcción desde 1882</span><span class="t-en">Gaudí's basilica · under construction since 1882</span></div>
+          <div class="ms-tip t-es">💡 Reserva online con antelación · L5 Sagrada Família</div>
+          <div class="ms-tip t-en">💡 Book online in advance · L5 Sagrada Família</div>
+        </div>
+      </div>
+      <!-- PARK GÜELL -->
+      <div class="ms-card reveal">
+        <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/f6fec3c8bfd9e2de233daeee2c0ad6f35c526a2d.jpg" alt="Park Güell" width="500" height="320" loading="lazy">
+        <div class="ms-overlay"></div>
+        <div class="ms-content">
+          <div class="ms-name">Park Güell</div>
+          <div class="ms-meta"><span class="t-es">Mosaicos · vistas panorámicas · L3 Lesseps</span><span class="t-en">Mosaics · panoramic views · L3 Lesseps</span></div>
+        </div>
+      </div>
+      <!-- BARRIO GÓTICO -->
+      <div class="ms-card reveal">
+        <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/76f2cc43f9f12908c0ebdda0ced8cea130b35e2f.jpg" alt="Barrio Gótico" width="500" height="320" loading="lazy">
+        <div class="ms-overlay"></div>
+        <div class="ms-content">
+          <div class="ms-name"><span class="t-es">Barrio Gótico</span><span class="t-en">Gothic Quarter</span></div>
+          <div class="ms-meta"><span class="t-es">Calles medievales · 2.000 años de historia</span><span class="t-en">Medieval streets · 2,000 years of history</span></div>
+        </div>
+      </div>
+      <!-- BARCELONETA -->
+      <div class="ms-card reveal">
+        <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/6c15dccafa577ab8899a89e8ef1a91caf68815a3.jpg" alt="Barceloneta" width="500" height="280" loading="lazy">
+        <div class="ms-overlay"></div>
+        <div class="ms-content">
+          <div class="ms-name">Barceloneta</div>
+          <div class="ms-meta"><span class="t-es">Playa urbana · chiringuitos · L4 Barceloneta</span><span class="t-en">City beach · beach bars · L4 Barceloneta</span></div>
+        </div>
+      </div>
+      <!-- MONTJUÏC -->
+      <div class="ms-card reveal">
+        <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/6da70fe1b15903ef1c0dfb44a6188ad026505d47.jpg" alt="Montjuïc" width="500" height="280" loading="lazy">
+        <div class="ms-overlay"></div>
+        <div class="ms-content">
+          <div class="ms-name">Montjuïc</div>
+          <div class="ms-meta"><span class="t-es">Castillo · MNAC · Fundació Miró · Teleférico</span><span class="t-en">Castle · MNAC · Miró Foundation · Cable car</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GAUDÍ -->
+<section class="section gaudi-section" id="gaudi">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Antoni Gaudí · 1852–1926</div>
+      <h2 class="section-title"><span class="t-es">La ruta Gaudí</span><span class="t-en">The Gaudí Route</span></h2>
+      <p class="section-sub t-es">7 de sus obras son Patrimonio de la Humanidad UNESCO. Una visita que no olvidarás.</p>
+      <p class="section-sub t-en">7 of his works are UNESCO World Heritage Sites. A visit you will never forget.</p>
+    </div>
+    <div class="gaudi-timeline reveal">
+      <div class="gaudi-item">
+        <div class="gaudi-year">1882–<br>hoy</div>
+        <div class="gaudi-text">
+          <h3>Sagrada Família</h3>
+          <p class="t-es">La obra maestra inacabada. Torres de hasta 172m, interior de luz filtrada y bosque de columnas. Reserva online es obligatorio.</p>
+          <p class="t-en">The unfinished masterpiece. Towers up to 172m tall, interior of filtered light and a forest of columns. Online booking is essential.</p>
+          <span class="must">🎫 <span class="t-es">26€ adulto · L5 Sagrada Família</span><span class="t-en">€26 adult · L5 Sagrada Família</span></span>
+        </div>
+      </div>
+      <div class="gaudi-item">
+        <div class="gaudi-year">1900–<br>1914</div>
+        <div class="gaudi-text">
+          <h3>Park Güell</h3>
+          <p class="t-es">Mosaicos de colores, la famosa salamandra y vistas de 360º sobre Barcelona. Zona monumental con entrada de pago.</p>
+          <p class="t-en">Colourful mosaics, the famous salamander and 360° views over Barcelona. Monumental zone requires a ticket.</p>
+          <span class="must">🎫 <span class="t-es">10€ · L3 Lesseps o Vallcarca</span><span class="t-en">€10 · L3 Lesseps or Vallcarca</span></span>
+        </div>
+      </div>
+      <div class="gaudi-item">
+        <div class="gaudi-year">1906–<br>1912</div>
+        <div class="gaudi-text">
+          <h3>La Pedrera <span style="font-size:.8em;font-style:italic">(Casa Milà)</span></h3>
+          <p class="t-es">Ondulada fachada de piedra, azotea escultórica con chimeneas guerreras y exposiciones permanentes. Passeig de Gràcia.</p>
+          <p class="t-en">Undulating stone facade, sculptural rooftop with warrior chimneys and permanent exhibitions. Passeig de Gràcia.</p>
+          <span class="must">🎫 <span class="t-es">25€ · L3/L5 Diagonal</span><span class="t-en">€25 · L3/L5 Diagonal</span></span>
+        </div>
+      </div>
+      <div class="gaudi-item">
+        <div class="gaudi-year">1904–<br>1906</div>
+        <div class="gaudi-text">
+          <h3>Casa Batlló</h3>
+          <p class="t-es">Fachada de dragón y azulejos azulados. Espectáculo de realidad aumentada incluido. Una de las más impresionantes del mundo.</p>
+          <p class="t-en">Dragon facade and blue tiles. Augmented reality show included. One of the most impressive buildings in the world.</p>
+          <span class="must">🎫 <span class="t-es">35€ · L2/L3/L4 Passeig de Gràcia</span><span class="t-en">€35 · L2/L3/L4 Passeig de Gràcia</span></span>
+        </div>
+      </div>
+      <div class="gaudi-item">
+        <div class="gaudi-year">1883–<br>1888</div>
+        <div class="gaudi-text">
+          <h3>Palau Güell</h3>
+          <p class="t-es">Primera obra mayor de Gaudí en Barcelona. Azotea con chimeneas únicas. Más tranquilo y económico que los otros.</p>
+          <p class="t-en">Gaudí's first major work in Barcelona. Rooftop with unique chimneys. Quieter and cheaper than the others.</p>
+          <span class="must">🎫 <span class="t-es">12€ · L3 Liceu</span><span class="t-en">€12 · L3 Liceu</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BARRIOS -->
+<section class="section barrios-section" id="barrios">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow"><span class="t-es">Para perderse</span><span class="t-en">Worth getting lost in</span></div>
+      <h2 class="section-title"><span class="t-es">Los barrios de Barcelona</span><span class="t-en">Barcelona's neighbourhoods</span></h2>
+      <p class="section-sub t-es">Cada barrio tiene su propia alma. Explóralos a pie.</p>
+      <p class="section-sub t-en">Each neighbourhood has its own soul. Explore them on foot.</p>
+    </div>
+    <div class="barrios-grid">
+      <div class="barrio-card reveal">
+        <div class="barrio-img">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/76f2cc43f9f12908c0ebdda0ced8cea130b35e2f.jpg" alt="Barrio Gótico" width="400" height="160" loading="lazy">
+          <div class="barrio-vibe t-es">Historia</div><div class="barrio-vibe t-en">History</div>
+        </div>
+        <div class="barrio-body">
+          <h3><span class="t-es">Barrio Gótico</span><span class="t-en">Gothic Quarter</span></h3>
+          <p class="t-es">El corazón medieval de Barcelona. Calles estrechas, Catedral, restos romanos y ambiente bohemio.</p>
+          <p class="t-en">Barcelona's medieval heart. Narrow streets, Cathedral, Roman remains and bohemian atmosphere.</p>
+          <div class="barrio-tags"><span class="btag">L3 Liceu</span><span class="btag t-es">Catedral</span><span class="btag t-en">Cathedral</span><span class="btag">🏛️</span></div>
+        </div>
+      </div>
+      <div class="barrio-card reveal reveal-delay-1">
+        <div class="barrio-img">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3cd6097681a02c76493e8499c65b81e7d9cc4036.jpg" alt="El Born" width="400" height="160" loading="lazy">
+          <div class="barrio-vibe t-es">Moda & Arte</div><div class="barrio-vibe t-en">Fashion & Art</div>
+        </div>
+        <div class="barrio-body">
+          <h3>El Born</h3>
+          <p class="t-es">Coctelería artesana, boutiques de diseño y el Mercat de Santa Caterina. El barrio más cool de Barcelona.</p>
+          <p class="t-en">Craft cocktail bars, design boutiques and Mercat de Santa Caterina. Barcelona's coolest neighbourhood.</p>
+          <div class="barrio-tags"><span class="btag">L1 Arc de Triomf</span><span class="btag">🍸</span></div>
+        </div>
+      </div>
+      <div class="barrio-card reveal reveal-delay-2">
+        <div class="barrio-img">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/c7356d0ac39e896b7dd2a46578cbbe3092172d4a.jpg" alt="Eixample" width="400" height="160" loading="lazy">
+          <div class="barrio-vibe t-es">Modernisme</div><div class="barrio-vibe t-en">Modernism</div>
+        </div>
+        <div class="barrio-body">
+          <h3>Eixample</h3>
+          <p class="t-es">La cuadrícula perfecta de Cerdà. Casa Batlló, La Pedrera, tiendas y la mejor oferta gastronómica.</p>
+          <p class="t-en">Cerdà's perfect grid. Casa Batlló, La Pedrera, shops and the best food scene in the city.</p>
+          <div class="barrio-tags"><span class="btag">L2/L3 Passeig de Gràcia</span><span class="btag">🏗️</span></div>
+        </div>
+      </div>
+      <div class="barrio-card reveal reveal-delay-3">
+        <div class="barrio-img">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/983b0fd2ac3220db7c1391898d7e0c9b3de68e10.jpg" alt="Gràcia" width="400" height="160" loading="lazy">
+          <div class="barrio-vibe t-es">Local & Festivo</div><div class="barrio-vibe t-en">Local & Festive</div>
+        </div>
+        <div class="barrio-body">
+          <h3>Gràcia</h3>
+          <p class="t-es">Plazas llenas de terrazas, mercados artesanales y el espíritu más auténtico de la ciudad. Casa de Park Güell.</p>
+          <p class="t-en">Squares full of terraces, artisan markets and the most authentic spirit of the city. Gateway to Park Güell.</p>
+          <div class="barrio-tags"><span class="btag">L3 Fontana</span><span class="btag">🌿</span></div>
+        </div>
+      </div>
+      <div class="barrio-card reveal">
+        <div class="barrio-img">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/6c15dccafa577ab8899a89e8ef1a91caf68815a3.jpg" alt="Barceloneta" width="400" height="160" loading="lazy">
+          <div class="barrio-vibe t-es">Playa</div><div class="barrio-vibe t-en">Beach</div>
+        </div>
+        <div class="barrio-body">
+          <h3>Barceloneta</h3>
+          <p class="t-es">El barrio marinero de Barcelona. Chiringuitos, pescado fresco y acceso directo a la playa más famosa de la ciudad.</p>
+          <p class="t-en">Barcelona's fisherman's quarter. Beach bars, fresh fish and direct access to the city's most famous beach.</p>
+          <div class="barrio-tags"><span class="btag">L4 Barceloneta</span><span class="btag">🏖️</span></div>
+        </div>
+      </div>
+      <div class="barrio-card reveal reveal-delay-1">
+        <div class="barrio-img">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/d94943569a505ef7eeceac28e6661b969fb1b134.jpg" alt="Tibidabo" width="400" height="160" loading="lazy">
+          <div class="barrio-vibe t-es">Vistas</div><div class="barrio-vibe t-en">Views</div>
+        </div>
+        <div class="barrio-body">
+          <h3>Tibidabo</h3>
+          <p class="t-es">El punto más alto de Barcelona (512m). Parque de atracciones centenario y las mejores vistas de la ciudad.</p>
+          <p class="t-en">Barcelona's highest point (512m). Century-old amusement park and the best views of the city.</p>
+          <div class="barrio-tags"><span class="btag t-es">FGC Peu del Funicular</span><span class="btag t-en">FGC Peu del Funicular</span><span class="btag">🎡</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MUSEOS -->
+<section class="section museos-section" id="museos">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow"><span class="t-es">Arte & Cultura</span><span class="t-en">Art & Culture</span></div>
+      <h2 class="section-title"><span class="t-es">Los mejores museos</span><span class="t-en">The best museums</span></h2>
+      <p class="section-sub t-es">Barcelona tiene más de 55 museos. Aquí los que no puedes perderte.</p>
+      <p class="section-sub t-en">Barcelona has over 55 museums. Here are the ones you can't miss.</p>
+    </div>
+    <div class="museos-list">
+      <div class="museo-card reveal">
+        <div class="museo-img"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/ced512e4c4f8826d4684d4f6ddee37822c4f0306.jpg" alt="MNAC" width="400" height="170" loading="lazy"></div>
+        <div class="museo-body">
+          <h3>MNAC</h3>
+          <p class="t-es">Museo Nacional de Arte de Cataluña. Arte románico medieval, colección modernista única. Vistas desde Montjuïc.</p>
+          <p class="t-en">National Art Museum of Catalonia. Medieval Romanesque art, unique modernist collection. Views from Montjuïc.</p>
+          <div class="museo-info">
+            <span class="museo-price t-es">12€ · gratis dom. tarde</span><span class="museo-price t-en">€12 · free Sun afternoon</span>
+            <span class="museo-line">L1/L3 Pl. Espanya</span>
+          </div>
+        </div>
+      </div>
+      <div class="museo-card reveal reveal-delay-1">
+        <div class="museo-img"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/d7345afd5f571641ee88fe4c03fcf77612e148d8.jpg" alt="Fundació Joan Miró" width="400" height="170" loading="lazy"></div>
+        <div class="museo-body">
+          <h3>Fundació Joan Miró</h3>
+          <p class="t-es">La mayor colección permanente de Miró del mundo. Edificio luminoso de Josep Lluís Sert en Montjuïc.</p>
+          <p class="t-en">The world's largest permanent Miró collection. Luminous building by Josep Lluís Sert at Montjuïc.</p>
+          <div class="museo-info">
+            <span class="museo-price t-es">15€ adulto</span><span class="museo-price t-en">€15 adult</span>
+            <span class="museo-line">L1/L3 Pl. Espanya</span>
+          </div>
+        </div>
+      </div>
+      <div class="museo-card reveal reveal-delay-2">
+        <div class="museo-img"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/91ff3f070ef30a31964e0b54fdc151eb5b6ece7d.jpg" alt="Palau de la Música" width="400" height="170" loading="lazy"></div>
+        <div class="museo-body">
+          <h3>Palau de la Música Catalana</h3>
+          <p class="t-es">Obra maestra modernista de Domènech i Montaner. UNESCO. Visita guiada y conciertos imprescindibles.</p>
+          <p class="t-en">Modernist masterpiece by Domènech i Montaner. UNESCO. Guided tours and concerts are a must.</p>
+          <div class="museo-info">
+            <span class="museo-price t-es">22€ visita guiada</span><span class="museo-price t-en">€22 guided tour</span>
+            <span class="museo-line">L1 Urquinaona</span>
+          </div>
+        </div>
+      </div>
+      <div class="museo-card reveal">
+        <div class="museo-img" style="background:linear-gradient(135deg,#0a0a2e,#1a1a5a);display:flex;align-items:center;justify-content:center;font-size:4rem">⚽</div>
+        <div class="museo-body">
+          <h3>Museu FC Barcelona</h3>
+          <p class="t-es">El Camp Nou y su museo son uno de los destinos más visitados de España. Imprescindible para los fans del fútbol.</p>
+          <p class="t-en">Camp Nou and its museum are one of the most visited destinations in Spain. Essential for football fans.</p>
+          <div class="museo-info">
+            <span class="museo-price t-es">35€ tour estadio</span><span class="museo-price t-en">€35 stadium tour</span>
+            <span class="museo-line">L3 Les Corts</span>
+          </div>
+        </div>
+      </div>
+      <div class="museo-card reveal reveal-delay-1">
+        <div class="museo-img" style="background:linear-gradient(135deg,#1a0505,#3a0f0f);display:flex;align-items:center;justify-content:center;font-size:4rem">🎨</div>
+        <div class="museo-body">
+          <h3>Museu Picasso</h3>
+          <p class="t-es">Colección única de las obras de juventud de Picasso. En un palacio medieval del barrio de El Born.</p>
+          <p class="t-en">Unique collection of Picasso's early works. Housed in a medieval palace in El Born neighbourhood.</p>
+          <div class="museo-info">
+            <span class="museo-price t-es">14€ · gratis jue tarde</span><span class="museo-price t-en">€14 · free Thu afternoon</span>
+            <span class="museo-line">L4 Jaume I</span>
+          </div>
+        </div>
+      </div>
+      <div class="museo-card reveal reveal-delay-2">
+        <div class="museo-img"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/83d0644b4d6a491eb89624da234ec476527c22ba.jpg" alt="MNAC interior dome" width="400" height="170" loading="lazy"></div>
+        <div class="museo-body">
+          <h3>MACBA</h3>
+          <p class="t-es">Museo de Arte Contemporáneo de Barcelona. Edificio blanco de Meier en el Raval. Arte del siglo XX y XXI.</p>
+          <p class="t-en">Museum of Contemporary Art of Barcelona. Meier's white building in El Raval. 20th and 21st century art.</p>
+          <div class="museo-info">
+            <span class="museo-price t-es">14€ · gratis lun</span><span class="museo-price t-en">€14 · free Mon</span>
+            <span class="museo-line">L1/L2 Universitat</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAYAS -->
+<section class="section playas-section" id="playas">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow"><span class="t-es">Mar Mediterráneo</span><span class="t-en">Mediterranean Sea</span></div>
+      <h2 class="section-title"><span class="t-es">Playas de Barcelona</span><span class="t-en">Barcelona's beaches</span></h2>
+      <p class="section-sub t-es">7 playas urbanas y muchas más a pocos minutos en tren. ¡El Mediterráneo te espera!</p>
+      <p class="section-sub t-en">7 city beaches and many more just minutes away by train. The Mediterranean awaits!</p>
+    </div>
+    <div class="playas-scroll">
+      <div class="playa-card reveal">
+        <div class="playa-img"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/7b4d50126150fe9732ab0c25a6334d67d16f5afc.jpg" alt="Barceloneta" width="400" height="180" loading="lazy"></div>
+        <div class="playa-body">
+          <h3>Barceloneta</h3>
+          <p class="t-es">La más famosa. Chiringuitos, voley playa y animación todo el día. Muy concurrida en verano.</p>
+          <p class="t-en">The most famous. Beach bars, volleyball and activity all day. Very busy in summer.</p>
+          <div class="playa-km">🚇 <span class="t-es">L4 Barceloneta · 5 min</span><span class="t-en">L4 Barceloneta · 5 min</span></div>
+        </div>
+      </div>
+      <div class="playa-card reveal reveal-delay-1">
+        <div class="playa-img"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/6c15dccafa577ab8899a89e8ef1a91caf68815a3.jpg" alt="Bogatell" width="400" height="180" loading="lazy"></div>
+        <div class="playa-body">
+          <h3>Bogatell · Mar Bella</h3>
+          <p class="t-es">Menos masificadas que Barceloneta. Ambiente local y deportivo. Mar Bella tiene zona nudista.</p>
+          <p class="t-en">Less crowded than Barceloneta. Local and sporty atmosphere. Mar Bella has a nudist area.</p>
+          <div class="playa-km">🚇 <span class="t-es">L4 Poblenou · 10 min a pie</span><span class="t-en">L4 Poblenou · 10 min walk</span></div>
+        </div>
+      </div>
+      <div class="playa-card reveal reveal-delay-2">
+        <div class="playa-img"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/28180acfbd01c4266e5364038dda6625db806cac.jpg" alt="Montgat" width="400" height="180" loading="lazy"></div>
+        <div class="playa-body">
+          <h3>Montgat · Maresme</h3>
+          <p class="t-es">15 min en Renfe R1. Más tranquila, aguas limpias y arena natural. El secreto de los barceloneses.</p>
+          <p class="t-en">15 min by Renfe R1. Quieter, clean water and natural sand. Barcelona locals' secret.</p>
+          <div class="playa-km">🚆 <span class="t-es">Renfe R1 · 15 min</span><span class="t-en">Renfe R1 · 15 min</span></div>
+        </div>
+      </div>
+      <div class="playa-card reveal">
+        <div class="playa-img"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4aaeb70d430710be934c6291aeafe3fb97c9b2ac.jpg" alt="El Masnou" width="400" height="180" loading="lazy"></div>
+        <div class="playa-body">
+          <h3>El Masnou · Ocata</h3>
+          <p class="t-es">20-22 min en tren. Arena dorada, acantilados, restaurantes de lujo y aguas cristalinas.</p>
+          <p class="t-en">20-22 min by train. Golden sand, cliffs, luxury restaurants and crystal clear water.</p>
+          <div class="playa-km">🚆 <span class="t-es">Renfe R1 · 20-22 min</span><span class="t-en">Renfe R1 · 20-22 min</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GASTRONOMÍA -->
+<section class="section gastro-section" id="gastronomia">
+  <div class="container">
+    <div style="margin-bottom:var(--space-10)" class="reveal">
+      <div class="section-eyebrow" style="color:#8ec67e"><span class="t-es">Comer en Barcelona</span><span class="t-en">Eating in Barcelona</span></div>
+      <h2 style="font-family:var(--font-display);font-size:var(--text-xl);color:#fff;margin-bottom:var(--space-2)"><span class="t-es">La mejor gastronomía del Mediterráneo</span><span class="t-en">The best Mediterranean gastronomy</span></h2>
+      <p style="font-size:var(--text-base);color:rgba(255,255,255,.65);max-width:55ch" class="t-es">Barcelona tiene más restaurantes con estrella Michelin que ciudades tres veces su tamaño. Pero la joya está en el menú del día y los mercados.</p>
+      <p style="font-size:var(--text-base);color:rgba(255,255,255,.65);max-width:55ch" class="t-en">Barcelona has more Michelin-starred restaurants than cities three times its size. But the real gem is the daily lunch menu and the markets.</p>
+    </div>
+    <div class="gastro-grid">
+      <div>
+        <div class="gastro-card reveal">
+          <h3 class="t-es">Platos que debes probar</h3><h3 class="t-en">Dishes you must try</h3>
+          <div class="gastro-item"><span class="icon">🥘</span><div><div class="name">Pa amb tomàquet</div><div class="desc t-es">Pan con tomate frotado, aceite y sal. El desayuno de Cataluña.</div><div class="desc t-en">Bread with rubbed tomato, oil and salt. Catalonia's breakfast staple.</div></div></div>
+          <div class="gastro-item"><span class="icon">🦞</span><div><div class="name">Fideuà</div><div class="desc t-es">Paella de fideos con marisco. Originaria de Gandía, perfecta aquí.</div><div class="desc t-en">Noodle paella with seafood. Originally from Gandía, perfect here.</div></div></div>
+          <div class="gastro-item"><span class="icon">🐟</span><div><div class="name">Esqueixada de bacallà</div><div class="desc t-es">Ensalada de bacalao desalado con tomate, cebolla y aceitunas.</div><div class="desc t-en">Salted cod salad with tomato, onion and olives.</div></div></div>
+          <div class="gastro-item"><span class="icon">🍮</span><div><div class="name">Crema catalana</div><div class="desc t-es">El postre estrella. Crema quemada con azúcar crujiente. La original.</div><div class="desc t-en">The star dessert. Burnt cream with crispy sugar. The original.</div></div></div>
+          <div class="gastro-item"><span class="icon">🍷</span><div><div class="name">Cava & Vermut</div><div class="desc t-es">El aperitivo catalán por excelencia. Vermut con aceitunas y boquerones.</div><div class="desc t-en">The quintessential Catalan aperitif. Vermouth with olives and anchovies.</div></div></div>
+        </div>
+
+        <div class="mercados-grid reveal" style="margin-top:var(--space-6)">
+          <div class="mercado-pill">
+            <div class="micon">🛒</div>
+            <div class="mname">La Boqueria</div>
+            <div class="mdesc t-es">Las Ramblas · el más famoso</div><div class="mdesc t-en">Las Ramblas · the most famous</div>
+          </div>
+          <div class="mercado-pill">
+            <div class="micon">🌿</div>
+            <div class="mname">Sta. Caterina</div>
+            <div class="mdesc t-es">El Born · mosaico ondulado</div><div class="mdesc t-en">El Born · wavy mosaic roof</div>
+          </div>
+          <div class="mercado-pill">
+            <div class="micon">🥩</div>
+            <div class="mname">Sta. Eulàlia</div>
+            <div class="mdesc t-es">L'Hospitalet · mercado local</div><div class="mdesc t-en">L'Hospitalet · local market</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gastro-img-side reveal">
+        <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/95ea9cef83ae542645aad4b0f59f3c1efa9956a8.jpg" alt="La Boqueria Barcelona" width="600" height="380" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ITINERARIOS -->
+<section class="section itin-section" id="itinerarios">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow"><span class="t-es">Planifica tu visita</span><span class="t-en">Plan your visit</span></div>
+      <h2 class="section-title"><span class="t-es">Itinerarios recomendados</span><span class="t-en">Recommended itineraries</span></h2>
+      <p class="section-sub t-es">¿Cuántos días tienes? Aquí la mejor forma de aprovecharlos.</p>
+      <p class="section-sub t-en">How many days do you have? Here's the best way to use them.</p>
+    </div>
+    <div class="itin-grid">
+      <div class="itin-card reveal">
+        <div class="itin-header" style="border-left:4px solid var(--color-primary)">
+          <div class="itin-day"><span class="t-es">Día 1</span><span class="t-en">Day 1</span></div>
+          <div class="itin-title"><span class="t-es">Gaudí Esencial</span><span class="t-en">Essential Gaudí</span></div>
+        </div>
+        <div class="itin-stops">
+          <div class="itin-stop">
+            <div class="itin-stop-line"><div class="itin-dot"></div><div class="itin-connector"></div></div>
+            <div class="itin-stop-text"><div class="itin-stop-name">Sagrada Família</div><div class="itin-stop-detail t-es">Mañana — reserva la primera entrada</div><div class="itin-stop-detail t-en">Morning — book the first slot</div><div class="itin-stop-time">9:00–11:30</div></div>
+          </div>
+          <div class="itin-stop">
+            <div class="itin-stop-line"><div class="itin-dot"></div><div class="itin-connector"></div></div>
+            <div class="itin-stop-text"><div class="itin-stop-name">Casa Batlló</div><div class="itin-stop-detail t-es">Passeig de Gràcia</div><div class="itin-stop-detail t-en">Passeig de Gràcia</div><div class="itin-stop-time">12:30–14:00</div></div>
+          </div>
+          <div class="itin-stop">
+            <div class="itin-stop-line"><div class="itin-dot"></div><div class="itin-connector"></div></div>
+            <div class="itin-stop-text"><div class="itin-stop-name t-es">Menú del día Eixample</div><div class="itin-stop-name t-en">Lunch menu Eixample</div><div class="itin-stop-time">14:00–15:30</div></div>
+          </div>
+          <div class="itin-stop">
+            <div class="itin-stop-line"><div class="itin-dot"></div><div class="itin-connector"></div></div>
+            <div class="itin-stop-text"><div class="itin-stop-name">La Pedrera</div><div class="itin-stop-detail t-es">Azotea al atardecer</div><div class="itin-stop-detail t-en">Rooftop at sunset</div><div class="itin-stop-time">16:00–18:00</div></div>
+          </div>
+          <div class="itin-stop">
+            <div class="itin-stop-line"><div class="itin-dot"></div></div>
+            <div class="itin-stop-text"><div class="itin-stop-name">Park Güell</div><div class="itin-stop-detail t-es">Vista nocturna desde afuera</div><div class="itin-stop-detail t-en">Night view from outside</div><div class="itin-stop-time">19:30–21:00</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="itin-card reveal reveal-delay-1">
+        <div class="itin-header" style="border-left:4px solid var(--color-gold)">
+          <div class="itin-day"><span class="t-es">Día 2</span><span class="t-en">Day 2</span></div>
+          <div class="itin-title"><span class="t-es">Mar & Historia</span><span class="t-en">Sea & History</span></div>
+        </div>
+        <div class="itin-stops">
+          <div class="itin-stop">
+            <div class="itin-stop-line"><div class="itin-dot" style="background:var(--color-gold)"></div><div class="itin-connector"></div></div>
+            <div class="itin-stop-text"><div class="itin-stop-name t-es">La Boqueria</div><div class="itin-stop-name t-en">La Boqueria market</div><div class="itin-stop-detail t-es">Desayuno y compras</div><div class="itin-stop-detail t-en">Breakfast and shopping</div><div class="itin-stop-time" style="color:var(--color-gold)">9:00–10:30</div></div>
+          </div>
+          <div class="itin-stop">
+            <div class="itin-stop-line"><div class="itin-dot" style="background:var(--color-gold)"></div><div class="itin-connector"></div></div>
+            <div class="itin-stop-text"><div class="itin-stop-name t-es">Barrio Gótico</div><div class="itin-stop-name t-en">Gothic Quarter</div><div class="itin-stop-detail t-es">Catedral, calles medievales</div><div class="itin-stop-detail t-en">Cathedral, medieval streets</div><div class="itin-stop-time" style="color:var(--color-gold)">10:30–13:00</div></div>
+          </div>
+          <div class="itin-stop">
+            <div class="itin-stop-line"><div class="itin-dot" style="background:var(--color-gold)"></div><div class="itin-connector"></div></div>
+            <div class="itin-stop-text"><div class="itin-stop-name">El Born</div><div class="itin-stop-detail t-es">Almuerzo y tapas</div><div class="itin-stop-detail t-en">Lunch and tapas</div><div class="itin-stop-time" style="color:var(--color-gold)">13:00–15:30</div></div>
+          </div>
+          <div class="itin-stop">
+            <div class="itin-stop-line"><div class="itin-dot" style="background:var(--color-gold)"></div><div class="itin-connector"></div></div>
+            <div class="itin-stop-text"><div class="itin-stop-name t-es">Playa Barceloneta</div><div class="itin-stop-name t-en">Barceloneta Beach</div><div class="itin-stop-detail t-es">Tarde en el mar</div><div class="itin-stop-detail t-en">Afternoon at the sea</div><div class="itin-stop-time" style="color:var(--color-gold)">16:00–20:00</div></div>
+          </div>
+          <div class="itin-stop">
+            <div class="itin-stop-line"><div class="itin-dot" style="background:var(--color-gold)"></div></div>
+            <div class="itin-stop-text"><div class="itin-stop-name t-es">Cena en Barceloneta</div><div class="itin-stop-name t-en">Dinner in Barceloneta</div><div class="itin-stop-detail t-es">Pescado y marisco fresco</div><div class="itin-stop-detail t-en">Fresh fish and seafood</div><div class="itin-stop-time" style="color:var(--color-gold)">21:00</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="itin-card reveal reveal-delay-2">
+        <div class="itin-header" style="border-left:4px solid var(--color-teal)">
+          <div class="itin-day"><span class="t-es">Día 3</span><span class="t-en">Day 3</span></div>
+          <div class="itin-title"><span class="t-es">Arte & Montjuïc</span><span class="t-en">Art & Montjuïc</span></div>
+        </div>
+        <div class="itin-stops">
+          <div class="itin-stop">
+            <div class="itin-stop-line"><div class="itin-dot" style="background:var(--color-teal)"></div><div class="itin-connector"></div></div>
+            <div class="itin-stop-text"><div class="itin-stop-name">MNAC</div><div class="itin-stop-detail t-es">Arte románico y vistas</div><div class="itin-stop-detail t-en">Romanesque art and views</div><div class="itin-stop-time" style="color:var(--color-teal)">10:00–12:30</div></div>
+          </div>
+          <div class="itin-stop">
+            <div class="itin-stop-line"><div class="itin-dot" style="background:var(--color-teal)"></div><div class="itin-connector"></div></div>
+            <div class="itin-stop-text"><div class="itin-stop-name">Fundació Miró</div><div class="itin-stop-detail t-es">Arte del siglo XX</div><div class="itin-stop-detail t-en">20th century art</div><div class="itin-stop-time" style="color:var(--color-teal)">13:00–15:00</div></div>
+          </div>
+          <div class="itin-stop">
+            <div class="itin-stop-line"><div class="itin-dot" style="background:var(--color-teal)"></div><div class="itin-connector"></div></div>
+            <div class="itin-stop-text"><div class="itin-stop-name t-es">Castillo de Montjuïc</div><div class="itin-stop-name t-en">Montjuïc Castle</div><div class="itin-stop-detail t-es">Teleférico y panorámica</div><div class="itin-stop-detail t-en">Cable car and panoramic view</div><div class="itin-stop-time" style="color:var(--color-teal)">15:30–17:30</div></div>
+          </div>
+          <div class="itin-stop">
+            <div class="itin-stop-line"><div class="itin-dot" style="background:var(--color-teal)"></div><div class="itin-connector"></div></div>
+            <div class="itin-stop-text"><div class="itin-stop-name">Gràcia</div><div class="itin-stop-detail t-es">Vermouth y plazas animadas</div><div class="itin-stop-detail t-en">Vermouth and lively squares</div><div class="itin-stop-time" style="color:var(--color-teal)">19:00–21:00</div></div>
+          </div>
+          <div class="itin-stop">
+            <div class="itin-stop-line"><div class="itin-dot" style="background:var(--color-teal)"></div></div>
+            <div class="itin-stop-text"><div class="itin-stop-name t-es">Cena en Gràcia</div><div class="itin-stop-name t-en">Dinner in Gràcia</div><div class="itin-stop-detail t-es">Restaurantes locales y terrazas</div><div class="itin-stop-detail t-en">Local restaurants and terraces</div><div class="itin-stop-time" style="color:var(--color-teal)">21:30</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSEJOS -->
+<section class="section consejos-section" id="consejos">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow"><span class="t-es">Para no fallar</span><span class="t-en">Insider knowledge</span></div>
+      <h2 class="section-title"><span class="t-es">Consejos prácticos</span><span class="t-en">Practical tips</span></h2>
+    </div>
+    <div class="consejos-grid">
+      <div class="consejo-card reveal">
+        <div class="consejo-icon">🎫</div>
+        <h3 class="t-es">Reserva siempre online</h3><h3 class="t-en">Always book online</h3>
+        <p class="t-es">Sagrada Família, Casa Batlló y Park Güell se agotan días antes. Reserva desde casa antes de llegar a Barcelona.</p>
+        <p class="t-en">Sagrada Família, Casa Batlló and Park Güell sell out days in advance. Book from home before arriving in Barcelona.</p>
+        <span class="highlight">barcelonaturisme.com</span>
+      </div>
+      <div class="consejo-card reveal reveal-delay-1">
+        <div class="consejo-icon">🚇</div>
+        <h3 class="t-es">T-Casual para moverse</h3><h3 class="t-en">T-Casual card to get around</h3>
+        <p class="t-es">10 viajes por 11,35€. Sirve para metro, bus, tram y Renfe. Los transbordos son gratis durante 75 minutos.</p>
+        <p class="t-en">10 trips for €11.35. Valid for metro, bus, tram and Renfe. Free transfers within 75 minutes.</p>
+        <span class="highlight">11,35€ · 10 <span class="t-es">viajes</span><span class="t-en">trips</span></span>
+      </div>
+      <div class="consejo-card reveal reveal-delay-2">
+        <div class="consejo-icon">🍽️</div>
+        <h3 class="t-es">Menú del día</h3><h3 class="t-en">Daily lunch menu</h3>
+        <p class="t-es">De lunes a viernes, primer plato + segundo + postre + bebida por 10-15€. El mejor momento para ir a restaurantes de calidad.</p>
+        <p class="t-en">Monday to Friday: starter + main + dessert + drink for €10-15. The best time to visit quality restaurants cheaply.</p>
+        <span class="highlight">10–15€ <span class="t-es">todo incluido</span><span class="t-en">all inclusive</span></span>
+      </div>
+      <div class="consejo-card reveal">
+        <div class="consejo-icon">☀️</div>
+        <h3 class="t-es">Mejor época para visitar</h3><h3 class="t-en">Best time to visit</h3>
+        <p class="t-es">Primavera (abril-junio) y otoño (sept-oct) son ideales. Menos turistas, temperatura perfecta y sin colas interminables.</p>
+        <p class="t-en">Spring (Apr-Jun) and autumn (Sep-Oct) are ideal. Fewer tourists, perfect temperature and no endless queues.</p>
+        <span class="highlight t-es">Abr–Jun · Sep–Oct</span><span class="highlight t-en">Apr–Jun · Sep–Oct</span>
+      </div>
+      <div class="consejo-card reveal reveal-delay-1">
+        <div class="consejo-icon">🌙</div>
+        <h3 class="t-es">Horario español</h3><h3 class="t-en">Spanish schedule</h3>
+        <p class="t-es">Almuerzo 14:00-16:00. Cena 21:00-23:00. Los restaurantes antes de las 21h suelen estar vacíos. Siesta sagrada de 14-17h.</p>
+        <p class="t-en">Lunch 2-4pm. Dinner 9-11pm. Restaurants before 9pm are usually empty. Sacred siesta 2-5pm.</p>
+        <span class="highlight t-es">Cena a las 21:00 💤</span><span class="highlight t-en">Dinner at 9pm 💤</span>
+      </div>
+      <div class="consejo-card reveal reveal-delay-2">
+        <div class="consejo-icon">💬</div>
+        <h3 class="t-es">Dos idiomas</h3><h3 class="t-en">Two languages</h3>
+        <p class="t-es">En Barcelona se habla catalán y castellano. Un "Gràcies" (gra-si-es) o "Bon dia" (buen día en catalán) siempre sorprende y agrada.</p>
+        <p class="t-en">In Barcelona people speak Catalan and Spanish. A "Gràcies" or "Bon dia" (good morning in Catalan) always surprises and delights locals.</p>
+        <span class="highlight">Gràcies 🙏 Bon dia 🌞</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-logo">Barcelona</span>
+  <p class="t-es"><strong>La ciudad más bella del Mediterráneo</strong> — te esperamos</p>
+  <p class="t-en"><strong>The most beautiful city on the Mediterranean</strong> — we'll see you here</p>
+  <div class="footer-links">
+    <a href="https://www.barcelonaturisme.com" target="_blank" rel="noopener">barcelonaturisme.com</a>
+    <a href="https://www.tmb.cat" target="_blank" rel="noopener">TMB · Metro & Bus</a>
+    <a href="https://www.sagradafamilia.org" target="_blank" rel="noopener">sagradafamilia.org</a>
+    <a href="https://www.casabatllo.es" target="_blank" rel="noopener">casabatllo.es</a>
+    <a href="https://www.lapedrera.com" target="_blank" rel="noopener">lapedrera.com</a>
+    <a href="https://www.parkguell.barcelona" target="_blank" rel="noopener">parkguell.barcelona</a>
+  </div>
+  <p style="margin-top:var(--space-6)"><span class="t-es">Emergencias</span><span class="t-en">Emergency</span> <strong>112</strong> · <span class="t-es">Policía</span><span class="t-en">Police</span> <strong>091</strong> · <span class="t-es">Guardia Urbana</span><span class="t-en">Local Police</span> <strong>092</strong></p>
+</footer>
+
+<script>
+(function(){
+  const d = document.documentElement;
+  let lang = 'es';
+  d.setAttribute('data-lang', lang);
+  d.setAttribute('lang', lang);
+
+  const btn = document.getElementById('langToggle');
+  if(btn) btn.addEventListener('click', function(){
+    lang = lang === 'es' ? 'en' : 'es';
+    d.setAttribute('data-lang', lang);
+    d.setAttribute('lang', lang);
+  });
+
+  const secs = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', function(){
+    let cur = '';
+    secs.forEach(function(s){ if(window.scrollY >= s.offsetTop - 130) cur = s.id; });
+    links.forEach(function(a){ a.classList.remove('active'); if(a.getAttribute('href') === '#'+cur) a.classList.add('active'); });
+  });
+
+  if(typeof IntersectionObserver !== 'undefined'){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+    }, {threshold:0.07});
+    document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
